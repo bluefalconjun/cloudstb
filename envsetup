@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export BASE_DIR=`pwd`
+export SDK_DIR=${BASE_DIR}
+
+echo SDK_DIR=${SDK_DIR}
