@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named cloudstb
+# Target rules for targets named client
 
 # Build rule for target.
-cloudstb: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cloudstb
-.PHONY : cloudstb
+client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 client
+.PHONY : client
 
 # fast build rule for target.
-cloudstb/fast:
-	$(MAKE) -f CMakeFiles/cloudstb.dir/build.make CMakeFiles/cloudstb.dir/build
-.PHONY : cloudstb/fast
+client/fast:
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
+.PHONY : client/fast
 
 main.o: main.c.o
 
@@ -129,7 +129,7 @@ main.o: main.c.o
 
 # target to build an object file
 main.c.o:
-	$(MAKE) -f CMakeFiles/cloudstb.dir/build.make CMakeFiles/cloudstb.dir/main.c.o
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/main.c.o
 .PHONY : main.c.o
 
 main.i: main.c.i
@@ -138,7 +138,7 @@ main.i: main.c.i
 
 # target to preprocess a source file
 main.c.i:
-	$(MAKE) -f CMakeFiles/cloudstb.dir/build.make CMakeFiles/cloudstb.dir/main.c.i
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/main.c.i
 .PHONY : main.c.i
 
 main.s: main.c.s
@@ -147,7 +147,7 @@ main.s: main.c.s
 
 # target to generate assembly for a file
 main.c.s:
-	$(MAKE) -f CMakeFiles/cloudstb.dir/build.make CMakeFiles/cloudstb.dir/main.c.s
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/main.c.s
 .PHONY : main.c.s
 
 # Help Target
@@ -157,7 +157,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... cloudstb"
+	@echo "... client"
 	@echo "... edit_cache"
 	@echo "... main.o"
 	@echo "... main.i"
