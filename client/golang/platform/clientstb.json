@@ -1,0 +1,30 @@
+{
+    "id": "montage00018",
+    "modules": [
+        {
+            "name": "remoter",
+            "type": "reader",
+            "dynamic": true,
+            "singleinst": true,
+            "path": "/dev/input/event0",
+            "attr": "r+ "
+        },
+        {
+            "name": "osd",
+            "type": "writer",
+            "dynamic": false,
+            "singleinst": false,
+            "path": "/dev/osd0",
+            "attr": "w+ "
+        },
+        {
+            "name": "video",
+            "type": "writer",
+            "dynamic": false,
+            "singleinst": true,
+            "path": "/dev/video0",
+            "attr": "w+ "
+        }
+    ],
+    "version": 10001 
+}
