@@ -27,7 +27,7 @@ type HwModule struct {
 	hwtype string
 	//is dynamic meas hwmodule will insert/eject in runtime(true)
 	isdynamic bool
-	//is singleinst means only one instance use hw module(true) in one time
+	//is singleinst means only one instance use hw module(true) one time
 	issingleinst bool
 	//absolute path in kernel
 	hwpath string
@@ -46,9 +46,8 @@ type PlatForm struct {
 //HwModInit returns line num >0 and errors in which module is error.
 func (hwmod *HwModule)HwModInit(p *os.File) (n int, err error) {
 	var modules []HwModule
-	//info := p.Stat().FileInfo
-	//data := make([]byte, p.Stat().FileInfo.Size())
-	data := make([]byte, 255)
+	finfo, _:= p.Stat()
+	data := make([]byte, finfo.Size())
 	err = json.Unmarshal(data, &modules)
 	return 0, err
 }
