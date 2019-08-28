@@ -5,6 +5,7 @@
 package platform
 
 import (
+	"fmt"
 	"os"
 	"errors"
 	"encoding/json"
@@ -44,10 +45,11 @@ type PlatForm struct {
 
 //HwModInit returns 0 means success parse the file and init submodules.
 //HwModInit returns line num >0 and errors in which module is error.
-func (hwmod *HwModule)HwModInit(p *os.File) (n int, err error) {
+func HwModInit(p *os.File) (n int, err error) {
 	var modules []HwModule
 	finfo, _:= p.Stat()
 	data := make([]byte, finfo.Size())
 	err = json.Unmarshal(data, &modules)
+	fmt.Println(modules)
 	return 0, err
 }
