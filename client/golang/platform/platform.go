@@ -6,9 +6,9 @@ package platform
 
 import (
 	"fmt"
-	"os"
+	//"os"
 	"errors"
-	"encoding/json"
+	//"encoding/json"
 )
 
 //InitJSONErr shows init json file error
@@ -19,7 +19,7 @@ var InitJSONErr = errors.New("Error in init json file")
 type HwModuler interface {
 	//HwModInit should be purecoded and multi-called
 	//p *os.File should be stb describe json file
-	HwModInit(p *os.File) (n int, err error)
+	HwModInit(hw *HwModule) (err error)
 }
 
 //HwModule is one hwmodule
@@ -35,8 +35,8 @@ type HwModule struct {
 	//hw specify attr string list
 	hwattr string
 }
-//PlatForm give the  
-//
+//PlatForm is the Set of hwmodules and unique id
+//to abstract the plaftorm
 type PlatForm struct {
 	stbid string 
 	stbversion int
@@ -45,11 +45,14 @@ type PlatForm struct {
 
 //HwModInit returns 0 means success parse the file and init submodules.
 //HwModInit returns line num >0 and errors in which module is error.
-func HwModInit(p *os.File) (n int, err error) {
-	var modules []HwModule
-	finfo, _:= p.Stat()
-	data := make([]byte, finfo.Size())
-	err = json.Unmarshal(data, &modules)
-	fmt.Println(modules)
-	return 0, err
+func HwModInit(hw *HwModule) (err error) {
+	fmt.Println(hw)
+	return err
+}
+
+//PlatInit returns 0 means success parse the file and init submodules.
+//PlatInit returns line num >0 and errors in which module is error.
+func PlatInit(plat *PlatForm) (err error) {
+	fmt.Println(plat)
+	return err
 }
